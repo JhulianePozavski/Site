@@ -38,17 +38,26 @@
   }
   .logo em { color: var(--terra); font-style: italic; font-weight: 400; }
   /* Links concentrados à direita */
-  .nav-links {
+ .nav-links {
     display: flex; align-items: center;
-    gap: 1.5rem; list-style: none;
+    gap: 1rem; list-style: none;
     margin-left: auto; padding-left: 2.5rem;
   }
+  
+  .nav-links li {
+    display: flex; align-items: center; gap: 1rem;
+  }
+
+  /* Adiciona o pontinho (·) após cada link, exceto no último */
+  .nav-links li:not(:last-child)::after {
+    content: '·';
+    color: rgba(250,248,243,0.4);
+    font-size: 1.2rem;
+    line-height: 1;
+  }
+
   .nav-links a { text-decoration: none; color: rgba(250,248,243,.68); font-size: .72rem; letter-spacing: .13em; text-transform: uppercase; font-weight: 400; transition: color .3s; white-space: nowrap; }
   .nav-links a:hover { color: var(--terra); }
-  .nav-btn { background: var(--terra) !important; color: #fff !important; padding: .42rem 1.15rem; border-radius: 2rem; transition: background .3s !important; letter-spacing: .1em !important; }
-  .nav-btn:hover { background: var(--terra-dark) !important; color: #fff !important; }
-  .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; margin-left: 1rem; flex-shrink: 0; }
-  .hamburger span { width: 22px; height: 1.5px; background: rgba(250,248,243,.8); display: block; }
 
   /* HERO */
   #hero { min-height: 100vh; display: grid; grid-template-columns: 1fr 1fr; padding-top: 44px; background: var(--cream); position: relative; overflow: hidden; }
@@ -195,13 +204,19 @@
       border-bottom: 1px solid rgba(181,130,90,.15);
     }
     .nav-links li:last-child a {
-      margin: .8rem 5vw 0;
-      padding: .75rem 1rem !important;
-      background: var(--terra) !important;
-      color: #fff !important;
-      border-radius: 2rem !important;
-      border-bottom: none !important;
-      text-align: center !important;
+      margin: 0;
+      padding: .85rem 5vw !important;
+      background: none !important;
+      color: rgba(250,248,243,.75) !important;
+      border-radius: 0 !important;
+      border-bottom: 1px solid rgba(181,130,90,.15) !important;
+      text-align: left !important;
+    }
+
+    /* Esconde os pontinhos na versão de celular */
+    .nav-links li::after {
+      content: none !important;
+      display: none !important;
     }
 
     /* HERO */
@@ -279,7 +294,7 @@
     <li><a href="#especialidades">Especialidades</a></li>
     <li><a href="#atendimento">Atendimento</a></li>
     <li><a href="#depoimentos">Depoimentos</a></li>
-    <li><a href="#agendamento" class="nav-btn">Agendar sessão</a></li>
+    <li><a href="#agendamento">Agendar sessão</a></li>
   </ul>
   <div class="hamburger" id="hamburger" onclick="toggleMenu()">
     <span></span><span></span><span></span>
