@@ -22,42 +22,6 @@
   body { font-family: 'Jost', sans-serif; background: var(--cream); color: var(--text); overflow-x: hidden; }
 
   /* NAV */
-  nav {
-    position: fixed; top: 0; width: 100%; z-index: 200;
-    padding: .9rem 5vw;
-    display: flex; align-items: center; justify-content: space-between;
-    background: rgba(61,43,31,0.97); backdrop-filter: blur(14px);
-    border-bottom: 1px solid rgba(181,130,90,0.25);
-  }
-  /* Logo esquerda: "Jhuliane" branco, "Pozavski" itálico terracota */
-  .logo {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1.22rem; font-weight: 500; letter-spacing: .06em;
-    color: rgba(250,248,243,.92); text-decoration: none; white-space: nowrap;
-    flex-shrink: 0;
-  }
-  .logo em { color: var(--terra); font-style: italic; font-weight: 400; }
-  /* Links concentrados à direita */
- .nav-links {
-    display: flex; align-items: center;
-    gap: 1rem; list-style: none;
-    margin-left: auto; padding-left: 2.5rem;
-  }
-  
-  .nav-links li {
-    display: flex; align-items: center; gap: 1rem;
-  }
-
-  /* Adiciona o pontinho (·) após cada link, exceto no último */
-  .nav-links li:not(:last-child)::after {
-    content: '·';
-    color: rgba(250,248,243,0.4);
-    font-size: 1.2rem;
-    line-height: 1;
-  }
-
-  .nav-links a { text-decoration: none; color: rgba(250,248,243,.68); font-size: .72rem; letter-spacing: .13em; text-transform: uppercase; font-weight: 400; transition: color .3s; white-space: nowrap; }
-  .nav-links a:hover { color: var(--terra); }
 
   /* HERO */
   #hero { min-height: 100vh; display: grid; grid-template-columns: 1fr 1fr; padding-top: 44px; background: var(--cream); position: relative; overflow: hidden; }
@@ -74,10 +38,10 @@
   .btn-ghost:hover { color: var(--terra); border-color: var(--terra); }
   .btn-ghost svg { transition: transform .3s; }
   .btn-ghost:hover svg { transform: translateX(4px); }
-  .hero-right { position: relative; overflow: hidden; opacity: 0; animation: fadeIn 1.2s .4s forwards; }
-  .hero-img-wrap { width: 100%; height: 100%; position: relative; display: flex; align-items: flex-end; justify-content: center; }
-  .hero-photo { width: 100%; height: 100%; max-height: calc(100vh - 100px); object-fit: cover; object-position: center top; display: block; }
-  .hero-decor { position: absolute; bottom: 2.5rem; left: 1.5rem; background: var(--cream); border: 1px solid var(--line); border-radius: 1.2rem; padding: 1.1rem 1.6rem; display: flex; align-items: center; gap: 1rem; box-shadow: 0 8px 32px rgba(60,30,10,.07); opacity: 0; animation: fadeUp .9s 1s forwards; z-index: 2; }
+  .hero-right { position: relative; display: flex; align-items: center; justify-content: center; opacity: 0; animation: fadeIn 1.2s .4s forwards; }
+  .hero-img-wrap { width: 100%; max-width: 460px; position: relative; }
+  .hero-photo { width: 100%; aspect-ratio: 4/5; height: auto; border-radius: 1.4rem; object-fit: cover; object-position: center top; box-shadow: 0 12px 40px rgba(60,30,10,.15); display: block; }
+  .hero-decor { position: absolute; bottom: -1.5rem; left: -1.5rem; background: var(--cream); border: 1px solid var(--line); border-radius: 1.2rem; padding: 1.1rem 1.6rem; display: flex; align-items: center; gap: 1rem; box-shadow: 0 8px 32px rgba(60,30,10,.07); opacity: 0; animation: fadeUp .9s 1s forwards; z-index: 2; }
   .decor-num { font-family: 'Cormorant Garamond', serif; font-size: 2rem; font-weight: 400; color: var(--terra); line-height: 1; }
   .decor-label { font-size: .72rem; color: var(--text); line-height: 1.5; letter-spacing: .04em; }
   .bg-circle { position: absolute; top: -8%; right: -6%; width: 55vw; height: 55vw; max-width: 600px; max-height: 600px; border-radius: 50%; background: radial-gradient(circle, #E8D9C5 0%, transparent 70%); z-index: -1; }
@@ -221,8 +185,9 @@
 
     /* HERO */
     #hero { grid-template-columns: 1fr; min-height: auto; padding-top: 44px; }
-    .hero-right { order: -1; height: 72vw; min-height: 240px; max-height: 400px; overflow: hidden; }
-    .hero-photo { width: 100%; height: 100%; min-height: unset; object-fit: cover; object-position: center 10%; }
+    .hero-right { order: -1; height: auto; padding: 1rem 5vw 0; }
+    .hero-img-wrap { max-width: 100%; margin: 0 auto; position: relative; }
+    .hero-photo { width: 100%; aspect-ratio: 4/5; height: auto; object-fit: cover; object-position: center 10%; border-radius: 1.4rem; }
     .hero-left { padding: 2rem 5vw 3rem; }
     .hero-title { font-size: clamp(2rem, 8vw, 2.8rem); }
     .hero-sub { font-size: .93rem; max-width: 100%; }
